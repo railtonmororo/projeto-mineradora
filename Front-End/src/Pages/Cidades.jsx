@@ -69,7 +69,7 @@ export default function Cidades() {
             carregarCidades();
         } catch (error) {
             console.error("Erro ao excluir", error);
-            setErro('Não foi possível excluir. Verifique senão há funcionários ou equipamentos vinculados. ');
+            setErro('Não foi possível excluir. Verifique se não há funcionários ou equipamentos vinculados. ');
         }
     };
 
