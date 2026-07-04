@@ -20,7 +20,7 @@ function App() {
     const [pagina, setPagina] = useState('inicio');
 
     useEffect(() => {
-        document.title = {TITULOS[pagina]};
+        document.title = TITULOS[pagina];
     }, [pagina]);
 
     return (
