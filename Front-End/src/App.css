@@ -132,7 +132,7 @@ li {
   justify-content: space-between;
 }
 
-/* ===== Responsivo para celular ===== */
+/*  Responsivo para celular  */
 @media (max-width: 600px) {
   .app-container {
     margin: 0;
@@ -140,7 +140,7 @@ li {
     border-radius: 0;
   }
 
-  /* Menu quebra em várias linhas em vez de cortar os botões */
+
   .menu-nav {
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -154,7 +154,7 @@ li {
     font-size: 14px;
   }
 
-  /* Inputs e select ocupam a largura toda, um abaixo do outro */
+  
   input, select {
     width: 100%;
     margin-right: 0;
@@ -165,7 +165,7 @@ li {
     width: 100%;
   }
 
-  /* Item da lista: texto acima, botões abaixo, ocupando a largura toda */
+ 
   li {
     flex-direction: column;
     align-items: stretch;
