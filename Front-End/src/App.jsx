@@ -8,8 +8,21 @@ import Servicos from './Pages/Servicos';
 
 import './App.css';
 
+const TITULOS = {
+    inicio: 'Início',
+    cidades: 'Cidades',
+    equipamentos: 'Equipamentos',
+    funcionarios: 'Funcionários',
+    servicos: 'Serviços',
+};
+
 function App() {
     const [pagina, setPagina] = useState('inicio');
+
+    useEffect(() => {
+        document.title = `${TITULOS[pagina]} | Sistema Integrado da Mineradora`;
+    }, [pagina]);
+
     return (
         <div className="app-container">
             <Menu setPagina={setPagina} />
