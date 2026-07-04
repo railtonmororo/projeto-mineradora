@@ -131,3 +131,56 @@ li {
   align-items: center;
   justify-content: space-between;
 }
+
+/* ===== Responsivo para celular ===== */
+@media (max-width: 600px) {
+  .app-container {
+    margin: 0;
+    padding: 16px;
+    border-radius: 0;
+  }
+
+  /* Menu quebra em várias linhas em vez de cortar os botões */
+  .menu-nav {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  .menu-nav button {
+    flex: 1 1 auto;
+    text-align: center;
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  /* Inputs e select ocupam a largura toda, um abaixo do outro */
+  input, select {
+    width: 100%;
+    margin-right: 0;
+    box-sizing: border-box;
+  }
+
+  .form-card button {
+    width: 100%;
+  }
+
+  /* Item da lista: texto acima, botões abaixo, ocupando a largura toda */
+  li {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .item-info {
+    margin-bottom: 10px;
+  }
+
+  .item-acoes {
+    justify-content: flex-end;
+  }
+
+  .btn-editar,
+  .btn-excluir {
+    flex: 1;
+  }
+}
