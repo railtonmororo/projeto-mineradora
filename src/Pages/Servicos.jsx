@@ -74,7 +74,7 @@ export default function Servicos() {
         }
     };
 
-    
+
     return (
         <div>
             <h2>Gestão de Serviços</h2>
@@ -107,10 +107,14 @@ export default function Servicos() {
             ) : (
                 <ul>
                     {servicos.map(servico => (
-                        <li key={servico.id} style={{ marginBottom: '6px' }}>
-                            <strong>{servico.nome}</strong> - Setor: {servico.setor}
-                            <button className="btn-editar" onClick={() => editar(servico)}>Editar</button>
-                            <button className="btn-excluir" onClick={() => remover(servico.id)}>Excluir</button>
+                        <li key={servico.id}>
+                            <div className="item-info">
+                                <strong>{servico.nome}</strong> - Setor: {servico.setor}
+                            </div>
+                            <div className="item-acoes">
+                                <button className="btn-editar" onClick={() => editar(servico)}>Editar</button>
+                                <button className="btn-excluir" onClick={() => remover(servico.id)}>Excluir</button>
+                            </div>
                         </li>
                     ))}
                 </ul>

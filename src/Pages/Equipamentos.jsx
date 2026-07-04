@@ -15,19 +15,19 @@ export default function Equipamentos() {
         carregarCidades();
     }, []);
     const carregarEquipamentos = async () => {
-            setCarregando(true);
-            setErro('');
-            try {
-                    const { data, error } = await equipamentoService.listar();
-                    if (error) throw error;
-                    setEquipamentos(data);
-                } catch (error) {
-                    console.error("Erro ao buscar equipamentos", error);
-                    setErro('Não foi possível carregar os equipamentos.');
-                } finally {
-                    setCarregando(false);
-                }
-            
+        setCarregando(true);
+        setErro('');
+        try {
+            const { data, error } = await equipamentoService.listar();
+            if (error) throw error;
+            setEquipamentos(data);
+        } catch (error) {
+            console.error("Erro ao buscar equipamentos", error);
+            setErro('Não foi possível carregar os equipamentos.');
+        } finally {
+            setCarregando(false);
+        }
+
     };
 
     const carregarCidades = async () => {
@@ -41,10 +41,10 @@ export default function Equipamentos() {
     };
 
     const limparFormulario = () => {
-            setNome('');
-            setSetor('');
-            setCidadeId('');
-            setEditandoId(null);
+        setNome('');
+        setSetor('');
+        setCidadeId('');
+        setEditandoId(null);
     };
 
     const salvar = async () => {
@@ -128,10 +128,14 @@ export default function Equipamentos() {
             ) : (
                 <ul>
                     {equipamentos.map(eq => (
-                        <li key={eq.id} style={{ marginBottom: '6px' }}>
-                            <strong>{eq.nome}</strong> - Setor: {eq.setor} - Cidade: {eq.cidades?.nome ?? '—'}
-                            <button className="btn-editar" onClick={() => editar(eq)} >Editar</button>
-                            <button className="btn-excluir" onClick={() => remover(eq.id)} >Excluir</button>
+                        <li key={eq.id}>
+                            <div className="item-info">
+                                <strong>{eq.nome}</strong> - Setor: {eq.setor} - Cidade: {eq.cidades?.nome ?? '—'}
+                            </div>
+                            <div className="item-acoes">
+                                <button className="btn-editar" onClick={() => editar(eq)}>Editar</button>
+                                <button className="btn-excluir" onClick={() => remover(eq.id)}>Excluir</button>
+                            </div>
                         </li>
                     ))}
                 </ul>

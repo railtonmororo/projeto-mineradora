@@ -3,9 +3,11 @@ import { funcionariosService, cidadeService } from '../services/api';
 export default function Funcionarios() {
     const [funcionarios, setFuncionarios] = useState([]);
     const [cidades, setCidades] = useState([]);
+
     const [nome, setNome] = useState('');
     const [setor, setSetor] = useState('');
     const [cidadeId, setCidadeId] = useState('');
+
     const [editandoId, setEditandoId] = useState(null);
     const [carregando, setCarregando] = useState(true);
     const [salvando, setSalvando] = useState(false);
@@ -29,8 +31,8 @@ export default function Funcionarios() {
             setCarregando(false);
         }
     };
-    
-     const carregarCidades = async () => {
+
+    const carregarCidades = async () => {
         try {
             const { data, error } = await cidadeService.listar();
             if (error) throw error;
@@ -70,7 +72,7 @@ export default function Funcionarios() {
         }
     };
 
-     const editar = (funcionario) => {
+    const editar = (funcionario) => {
         setEditandoId(funcionario.id);
         setNome(funcionario.nome);
         setSetor(funcionario.setor);
@@ -129,10 +131,14 @@ export default function Funcionarios() {
             ) : (
                 <ul>
                     {funcionarios.map(funcionario => (
-                        <li key={funcionario.id} style={{ marginBottom: '6px' }}>
-                            <strong>{funcionario.nome}</strong> - Setor: {funcionario.setor} - Cidade: {funcionario.cidades?.nome ?? '—'}
-                            <button className="btn-editar" onClick={() => editar(funcionario)} >Editar</button>
-                            <button className="btn-excluir" onClick={() => remover(funcionario.id)} >Excluir</button>
+                        <li key={funcionario.id}>
+                            <div className="item-info">
+                                <strong>{funcionario.nome}</strong> - Setor: {funcionario.setor} - Cidade: {funcionario.cidades?.nome ?? '—'}
+                            </div>
+                            <div className="item-acoes">
+                                <button className="btn-editar" onClick={() => editar(funcionario)}>Editar</button>
+                                <button className="btn-excluir" onClick={() => remover(funcionario.id)}>Excluir</button>
+                            </div>
                         </li>
                     ))}
                 </ul>

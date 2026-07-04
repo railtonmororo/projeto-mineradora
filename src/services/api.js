@@ -16,7 +16,6 @@ export const cidadeService = {
 };
 
 export const equipamentoService = {
-  // traz o nome da cidade junto (join) para exibir na lista
   listar() {
     return supabase
       .from("equipamentos")
